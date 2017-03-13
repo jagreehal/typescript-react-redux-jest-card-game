@@ -1,0 +1,60 @@
+{
+  "name": "typescript-react-redux-jest-card-game",
+  "version": "1.0.0",
+  "author": "Jag Reehal",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "predev": "tsc",
+    "dev": "concurrently \"npm run watch:tsc\" next",
+    "prestart": "rimraf pages/*.js && tsc -p tsconfig-prod.json && next build",
+    "start": "next start",
+    "tsc": "tsc",
+    "test": "jest",
+    "watch:test": "jest --watch",
+    "watch:tsc": "tsc --watch"
+  },
+  "dependencies": {
+    "next": "^2.0.0-beta.36",
+    "react": "15.4.2",
+    "react-dom": "15.4.2",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.8.2"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^2.7.5",
+    "@types/jest": "^19.2.1",
+    "@types/node": "^7.0.8",
+    "@types/react": "^15.0.16",
+    "@types/react-dom": "^0.14.23",
+    "@types/react-redux": "^4.4.37",
+    "concurrently": "^3.4.0",
+    "enzyme": "^2.7.1",
+    "jest": "^19.0.2",
+    "react-addons-test-utils": "^15.4.2",
+    "redux-mock-store": "^1.2.2",
+    "ts-jest": "^19.0.0",
+    "ts-node": "^2.1.0",
+    "typescript": "^2.2.1"
+  },
+  "jest": {
+    "globals": {
+      "__TS_CONFIG__": {
+        "module": "commonjs",
+        "jsx": "react"
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testMatch": [
+      "**/*.spec.(ts|tsx)"
+    ]
+  }
+}

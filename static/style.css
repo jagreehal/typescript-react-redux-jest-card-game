@@ -1,0 +1,161 @@
+html,
+body {
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMTM3NzUyIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2U9ImdyZWVuIj48L3BhdGg+Cjwvc3ZnPg==");
+  height: 100%;
+  width: 100%;
+}
+
+.cards li {
+  margin-right: 1em;
+}
+
+.cards li:last-child {
+  margin-right: 0;
+}
+
+.card {
+  display: inline-block;
+  position: relative;
+  width: 10em;
+  height: 15em;
+  background: #fff;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 0.5em;
+}
+
+.card.small {
+  width: 5em;
+  height: 7.5em;
+}
+
+.card.small .front:before,
+.card.small .front:after {
+  font-size: 1em;
+}
+
+.card.small .front p {
+  font-size: 3em;
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    width: 5em;
+    height: 7.5em;
+  }
+  .card .front:before,
+  .card .front:after {
+    font-size: 1em;
+  }
+  .card .front p {
+    font-size: 3em;
+  }
+}
+
+
+.card figure {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 0.5em;
+}
+
+.back {
+  background-color: #DFDBE5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='charlie-brown' fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  -webkit-transform: rotateY( 180deg);
+          transform: rotateY( 180deg);
+}
+
+.front {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.showBack {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.front p {
+  font: 6em Times New Roman, serif;
+}
+
+.card-small-min-height {
+  min-height: 8em;
+}
+
+.diamonds:before,
+.diamonds:after {
+  content: "♦";
+  color: #ff0000;
+}
+
+.hearts:before,
+.hearts:after {
+  content: "♥";
+  color: #ff0000;
+}
+
+.clubs:before,
+.clubs:after {
+  content: "♣";
+  color: #000;
+}
+
+.spades:before,
+.spades:after {
+  content: "♠";
+  color: #000;
+}
+
+.front:before {
+  position: absolute;
+  font-size: 2em;
+  left: 0.25em;
+  top: 0.25em;
+}
+
+.front:after {
+  position: absolute;
+  font-size: 2em;
+  right: 0.25em;
+  bottom: 0.25em;
+}
+
+.mh-25 {
+  min-height: 25%;
+}
+
+.mh-75 {
+  min-height: 75%;
+}
+
+ /*becuase of iOS*/
+.right-pointing-triangle::after {
+  content: "\25B6 \FE0E";
+}
