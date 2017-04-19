@@ -13,7 +13,7 @@ type Props = {
   game: GameState
 };
 
-const Main = ({ game }: Props) => {
+export const Main = ({ game }: Props) => {
   if (!game || game.status === GameStatus.notStarted) {
     return <Home />;
   }

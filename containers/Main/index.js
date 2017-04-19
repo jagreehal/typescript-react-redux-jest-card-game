@@ -5,7 +5,7 @@ import Home from '../../components/Home';
 import PreviousCards from '../../components/PreviousCards';
 import Message from '../../components/Message';
 import CurrentAndNext from '../../components/CurrentAndNext';
-const Main = ({ game }) => {
+export const Main = ({ game }) => {
     if (!game || game.status === GameStatus.notStarted) {
         return React.createElement(Home, null);
     }

@@ -2,7 +2,7 @@ import { AppState, Store } from "../types";
 
 import { createStore, applyMiddleware, combineReducers } from "redux";
 
-const createLogger = require("redux-logger");
+const { createLogger } = require("redux-logger");
 import { reducer as game } from "./modules/game";
 const loggerMiddleware = createLogger();
 
