@@ -12,5 +12,5 @@
         "types/**/.js*": true,        
         "components/**/.js*": true
     },
-    "vsicons.presets.angular": false
+    "eslint.enable": false
 }

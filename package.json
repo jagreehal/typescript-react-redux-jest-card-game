@@ -28,7 +28,7 @@
     "@types/node": "^7.0.13",
     "@types/react": "^15.0.22",
     "@types/react-dom": "^15.5.0",
-    "@types/react-redux": "^4.4.38",
+    "@types/react-redux": "^4.4.39",
     "concurrently": "^3.4.0",
     "enzyme": "^2.8.2",
     "jest": "^19.0.2",
@@ -36,9 +36,12 @@
     "redux-mock-store": "^1.2.3",
     "ts-jest": "^19.0.10",
     "ts-node": "^3.0.2",
+    "tslint": "^5.1.0",
+    "tslint-microsoft-contrib": "^4.0.1",
+    "tslint-react": "^2.6.0",
     "typescript": "^2.2.2"
   },
-  "jest": {   
+  "jest": {
     "moduleFileExtensions": [
       "ts",
       "tsx",
