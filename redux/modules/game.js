@@ -1,25 +1,28 @@
-import { Guess, Level, GameStatus } from "../../types";
-import { cards, getShuffledCardsForGame } from "../../cards";
+import { GuessResponse, Level, GameStatus } from '../../types';
+import { cards, getShuffledCardsForGame } from '../../cards';
 export const initialState = {
     status: GameStatus.notStarted
 };
+const guess = (guess) => ({ guess, type: 'GUESS' });
+const start = (level = Level.easy) => ({
+    level,
+    type: 'START_GAME'
+});
+const reset = () => ({ type: 'RESET_GAME' });
 export const actions = {
-    guess: (guess) => ({ type: "GUESS", guess }),
-    start: (level = Level.easy) => ({
-        type: "START_GAME",
-        level
-    }),
-    reset: () => ({ type: "RESET_GAME" })
+    guess,
+    start,
+    reset
 };
 export function reducer(state = initialState, action) {
     switch (action.type) {
-        case "RESET_GAME":
+        case 'RESET_GAME':
             return {
                 status: GameStatus.notStarted
             };
-        case "START_GAME":
+        case 'START_GAME':
             let cardsForGame;
-            let level = action.level;
+            const level = action.level;
             switch (level) {
                 case Level.hard:
                     cardsForGame = getShuffledCardsForGame(cards);
@@ -29,29 +32,29 @@ export function reducer(state = initialState, action) {
                     break;
             }
             return {
+                level,
                 status: GameStatus.started,
                 previousCards: [],
                 currentCard: Object.assign({}, cardsForGame[0], { flipped: true }),
-                remainingCards: cardsForGame.slice(1),
-                level
+                remainingCards: cardsForGame.slice(1)
             };
-        case "GUESS":
+        case 'GUESS':
             if (state.status === GameStatus.notStarted || !state.remainingCards) {
                 return state;
             }
             if (!state.remainingCards.length) {
                 return Object.assign({}, state, {
-                    status: "won",
+                    status: 'won',
                     hasWon: true
                 });
             }
-            let nextCard = Object.assign({}, state.remainingCards[0], {
+            const nextCard = Object.assign({}, state.remainingCards[0], {
                 flipped: true
             });
-            let nextRemainingCards = state.remainingCards.slice(1);
+            const nextRemainingCards = state.remainingCards.slice(1);
             // flip the next card
             let guessIsOK = false;
-            if (action.guess === Guess.high) {
+            if (action.guess === GuessResponse.high) {
                 guessIsOK = nextCard.value > state.currentCard.value;
             }
             else {
@@ -60,14 +63,14 @@ export function reducer(state = initialState, action) {
             if (!guessIsOK) {
                 return Object.assign({}, state, {
                     remainingCards: [nextCard].concat(nextRemainingCards),
-                    status: "lost"
+                    status: 'lost'
                 });
             }
-            let hasWon = nextRemainingCards.length === 0 ? true : undefined;
+            const hasWon = nextRemainingCards.length === 0 ? true : undefined;
             if (hasWon) {
                 return Object.assign({}, state, {
                     remainingCards: [nextCard],
-                    status: "won"
+                    status: 'won'
                 });
             }
             return Object.assign({}, state, {

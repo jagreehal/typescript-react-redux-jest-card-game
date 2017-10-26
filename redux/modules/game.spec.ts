@@ -1,18 +1,20 @@
 import {
   Card,
-  Guess,
-  GameAction,
+  GuessResponse,
+  GameActions,
   GameState,
   Level,
   GameStatus
-} from "../../types";
-import { cardAhearts, card2hearts, card3hearts } from "../../cards";
-import { reducer, actions, initialState } from "./game";
-
+} from '../../types';
+import { cardAhearts, card2hearts, card3hearts } from '../../cards';
+import { reducer, actions, initialState } from './game';
 
 describe('Game reducer', () => {
   it('can start game', () => {
-    let result = reducer(initialState, { type: 'START_GAME', level:Level.easy });
+    const result = reducer(initialState, {
+      type: 'START_GAME',
+      level: Level.easy
+    });
     if (result.status === GameStatus.notStarted) {
       expect(result.status).toBe('started');
       return false;
@@ -24,24 +26,24 @@ describe('Game reducer', () => {
   });
 
   it('can play ok to win', () => {
-    let card1 = cardAhearts;
-    let card2 = card2hearts;
+    const card1 = cardAhearts;
+    const card2 = card2hearts;
 
-    let gameState: GameState = {
+    const gameState: GameState = {
       previousCards: [],
       currentCard: card1,
       remainingCards: [card2],
       status: GameStatus.started,
-      level:Level.easy
+      level: Level.easy
     };
 
-    let result = reducer(gameState, actions.guess(Guess.high));
+    const result = reducer(gameState, actions.guess(GuessResponse.high));
     if (result.status === GameStatus.notStarted) {
       expect(result.status).toBe('started');
       return false;
     }
 
-    let remainingCard = result.remainingCards[0];
+    const remainingCard = result.remainingCards[0];
 
     expect(result.previousCards.length).toBe(0);
     expect(remainingCard.value).toBe(2);
@@ -51,19 +53,19 @@ describe('Game reducer', () => {
   });
 
   it('can play mid game', () => {
-    let card1 = cardAhearts;
-    let card2 = card2hearts;
-    let card3 = card3hearts;
+    const card1 = cardAhearts;
+    const card2 = card2hearts;
+    const card3 = card3hearts;
 
-    let gameState: GameState = {
+    const gameState: GameState = {
       previousCards: [],
       currentCard: card1,
       remainingCards: [card2, card3],
       status: GameStatus.started,
-      level:Level.easy
+      level: Level.easy
     };
 
-    let result = reducer(gameState, actions.guess(Guess.high));
+    const result = reducer(gameState, actions.guess(GuessResponse.high));
 
     if (result.status === GameStatus.notStarted) {
       expect(result.status).toBe('started');
@@ -77,19 +79,19 @@ describe('Game reducer', () => {
   });
 
   it('can play bad card', () => {
-    let card1 = cardAhearts;
-    let card2 = card2hearts;
-    let card3 = card3hearts;
+    const card1 = cardAhearts;
+    const card2 = card2hearts;
+    const card3 = card3hearts;
 
-    let gameState: GameState = {
+    const gameState: GameState = {
       previousCards: [],
       currentCard: card1,
       remainingCards: [card2],
       status: GameStatus.started,
-      level:Level.easy
+      level: Level.easy
     };
 
-    let result = reducer(gameState, actions.guess(Guess.low));
+    const result = reducer(gameState, actions.guess(GuessResponse.low));
     if (result.status === GameStatus.notStarted) {
       expect(result.status).toBe('started');
       return false;

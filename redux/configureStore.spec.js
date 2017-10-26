@@ -1,8 +1,8 @@
-import { GameStatus } from "../types";
+import { GameStatus } from '../types';
 import configureStore from './configureStore';
 describe('Configure Store', () => {
     it('should be able to configure', () => {
-        let state = {
+        const state = {
             game: {
                 status: GameStatus.notStarted
             }

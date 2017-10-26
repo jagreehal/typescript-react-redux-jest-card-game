@@ -1,18 +1,16 @@
 import * as React from 'react';
 import Message from './index';
-import { mount } from 'enzyme';
+import { mount } from '../../test';
 import { cardAclubs, cardAhearts } from '../../cards';
 
-import {  
-  GameStatus
-} from "../../types";
+import { GameStatus } from '../../types';
 
 describe('Message tests', () => {
   let previousCards = [cardAclubs];
   let remainingCards = [cardAhearts];
 
   it('Should display winner message', () => {
-    let status = GameStatus.won;    
+    let status = GameStatus.won;
 
     const wrapper = mount(
       <Message
@@ -40,7 +38,7 @@ describe('Message tests', () => {
   });
 
   it('Should default message', () => {
-    let status =  GameStatus.started;
+    let status = GameStatus.started;
 
     const wrapper = mount(
       <Message
@@ -51,5 +49,5 @@ describe('Message tests', () => {
     );
 
     expect(wrapper.text()).toBe('Cards Played: 2 / 3');
-  });  
+  });
 });

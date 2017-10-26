@@ -1,5 +1,5 @@
-import * as React from 'react'; 
-import { Card, GameState, GameStatus, Dispatch, AppState, Level, Guess } from "../../types";
+import * as React from 'react';
+import { Card, GameState, GameStatus, AppState, Level } from '../../types';
 
 import { connect } from 'react-redux';
 import { actions } from '../../redux/modules/game';
@@ -21,9 +21,16 @@ export const Main = ({ game }: Props) => {
 
   return (
     <div className="mh-75 flex flex-column">
-      <Message status={game.status} previousCards={game.previousCards} remainingCards={game.remainingCards} />
+      <Message
+        status={game.status}
+        previousCards={game.previousCards}
+        remainingCards={game.remainingCards}
+      />
       <PreviousCards previousCards={game.previousCards} />
-      <CurrentAndNext currentCard={game.currentCard} remainingCards={game.remainingCards} />       
+      <CurrentAndNext
+        currentCard={game.currentCard}
+        remainingCards={game.remainingCards}
+      />
     </div>
   );
 };

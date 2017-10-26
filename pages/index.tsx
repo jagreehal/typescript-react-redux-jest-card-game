@@ -1,21 +1,12 @@
-import * as React from "react";
-import { render } from "react-dom";
-import { Provider } from "react-redux";
-import Head from "next/head";
-import {
-  Card,
-  GameState,
-  GameStatus,
-  Dispatch,
-  AppState,
-  Level,
-  Guess,
-  Store
-} from "../types";
+import * as React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import Head from 'next/head';
+import { Card, GameState, GameStatus, AppState, Level, Store } from '../types';
 
-import App from "../components/App";
-import configureStore from "../redux/configureStore";
-import { cardAhearts, card2hearts, card3hearts } from "../cards";
+import App from '../components/App';
+import configureStore from '../redux/configureStore';
+import { cardAhearts, card2hearts, card3hearts } from '../cards';
 
 let startedState: AppState = {
   game: {

@@ -1,12 +1,11 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-
 export type Props = {
   children?: any
 };
 
-export default ({ children=null }) => (
+export default ({ children = null }) => (
   <div>
     <Head>
       <title>&#9650; Higher or &#9660; Lower?</title>
@@ -15,6 +14,6 @@ export default ({ children=null }) => (
       <link href="static/tachyons.css" media="all" rel="stylesheet" />
       <link href="static/style.css" media="all" rel="stylesheet" />
     </Head>
-      {children}
+    {children}
   </div>
 );

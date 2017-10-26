@@ -1,26 +1,24 @@
 import * as React from 'react';
 import Guess from './index';
-import { mount } from 'enzyme';
+import { mount } from '../../test';
+import { GuessResponse } from '../../types';
 
 describe('Guess tests', () => {
-  let guessHigh;
-  let guessLow;
+  let guess;
   let wrapper;
   beforeEach(() => {
-
-    guessHigh = jest.fn();
-    guessLow = jest.fn();
-    wrapper = mount(<Guess guessHigh={guessHigh} guessLow={guessLow} />);
-
+    guess = jest.fn();
+    wrapper = mount(<Guess guess={guess} />);
   });
 
-  it('Will call guessHigh action on click', () => {    
+  it('Will call guessHigh action on click', () => {
     wrapper.find('#guessHigh').simulate('click');
-    expect(guessHigh.mock.calls.length).toBe(1);
+    expect(guess.mock.calls.length).toBe(1);
+    expect(guess.mock.calls[0][0]).toBe(GuessResponse.high);
   });
 
-  it('Will call guessLow action on click', () => {    
+  it('Will call guessLow action on click', () => {
     wrapper.find('#guessLow').simulate('click');
-    expect(guessLow.mock.calls.length).toBe(1);
+    expect(guess.mock.calls[0][0]).toBe(GuessResponse.low);
   });
 });

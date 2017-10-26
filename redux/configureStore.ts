@@ -1,9 +1,9 @@
-import { AppState, Store } from "../types";
+import { AppState, Store } from '../types';
 
-import { createStore, applyMiddleware, combineReducers } from "redux";
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 
-const { createLogger } = require("redux-logger");
-import { reducer as game } from "./modules/game";
+const { createLogger } = require('redux-logger');
+import { reducer as game } from './modules/game';
 const loggerMiddleware = createLogger();
 
 const reducer = combineReducers({

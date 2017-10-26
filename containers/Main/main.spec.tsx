@@ -1,28 +1,26 @@
-import * as React from "react";
+import * as React from 'react';
 import Main from './index';
-import { mount } from 'enzyme';
+import { mount } from '../../test';
 import configureStore from 'redux-mock-store';
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux';
 
 import Home from '../../components/Home';
 import PreviousCards from '../../components/PreviousCards';
 import Message from '../../components/Message';
 import CurrentAndNext from '../../components/CurrentAndNext';
 
-import {
-    Card,
-    Guess,
-    Level,
-    GameStatus,
-    AppState
-} from "../../types";
+import { Card, GuessResponse, Level, GameStatus, AppState } from '../../types';
 
 describe('Main tests', () => {
   const mockStore = configureStore();
   describe('Will render Home', () => {
     it(' when there is no game', () => {
       const store = mockStore();
-      const wrapper = mount(<Provider store={store}><Main /></Provider>);
+      const wrapper = mount(
+        <Provider store={store}>
+          <Main />
+        </Provider>
+      );
       expect(wrapper.find(Home).length).toBe(1);
     });
 
@@ -31,7 +29,11 @@ describe('Main tests', () => {
         game: { status: GameStatus.notStarted }
       };
       const store = mockStore(state);
-      const wrapper = mount(<Provider store={store}><Main /></Provider>);
+      const wrapper = mount(
+        <Provider store={store}>
+          <Main />
+        </Provider>
+      );
       expect(wrapper.find(Home).length).toBe(1);
     });
   });
@@ -47,13 +49,17 @@ describe('Main tests', () => {
       game: {
         status: GameStatus.started,
         previousCards: [],
-        remainingCards: [], 
+        remainingCards: [],
         currentCard: card,
-        level:Level.easy
+        level: Level.easy
       }
-    }; 
+    };
     const store = mockStore(state);
-    const wrapper = mount(<Provider store={store}><Main /></Provider>);
+    const wrapper = mount(
+      <Provider store={store}>
+        <Main />
+      </Provider>
+    );
     expect(wrapper.find(Message).length).toBe(1);
     expect(wrapper.find(PreviousCards).length).toBe(1);
     expect(wrapper.find(CurrentAndNext).length).toBe(1);

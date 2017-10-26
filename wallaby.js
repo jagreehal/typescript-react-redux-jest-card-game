@@ -1,27 +1,26 @@
-const folders = ["components", "containers", "lib", "pages", "redux", "cards", "types"];
-const files = ({ prefix, ext }) => folders.map(folder => {
-  return `${prefix || ""}${folder}/**/*.${ext}`;
-});
-
-module.exports = function (wallaby) {
+module.exports = function(wallaby) {
   return {
-    debug: true,
-    files: files({ ext: "ts*" })
-      .concat(files({ ext: "snap" }))
-      .concat(['package.json', 'tsconfig.json'])
-      .concat(files({ ext: "spec.ts*", prefix: "!" })),
-    tests: files({ ext: "spec.ts*" }),
-    env: { type: "node", runner: "node" },
+    debug: false,
+    files: [
+      '@(components|containers|lib|pages|redux|cards|types)/**/*.ts?(x)',
+      'package.json',
+      'tsconfig.json',
+      'test/index.ts',
+      '!@(components|containers|lib|pages|redux|cards)/**/*.spec.ts?(x)'
+    ],
+    tests: ['@(components|containers|lib|pages|redux|cards)/**/*.spec.ts?(x)'],
+    env: { type: 'node', runner: 'node' },
     compilers: {
-      "**/*.js": wallaby.compilers.babel(),
-      "**/*.ts*": wallaby.compilers.typeScript({
-        typescript: require("typescript"),
-        module: "commonjs"
+      '**/*.js?(x)': wallaby.compilers.babel(),
+      '**/*.ts?(x)': wallaby.compilers.typeScript({
+        typescript: require('typescript'),
+        module: 'commonjs'
       })
     },
-    testFramework: "jest",
-    setup: function () {
-      wallaby.testFramework.configure(require('./package.json').jest);
+    testFramework: 'jest',
+    setup: function(wallaby) {
+      var jestconfig = require('./package.json').jest;
+      wallaby.testFramework.configure(jestconfig);
     }
   };
 };

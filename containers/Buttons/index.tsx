@@ -1,34 +1,44 @@
-import * as React from 'react'; 
-import { Card, GameState, GameStatus, Dispatch, AppState, Level, Guess } from "../../types";
+import * as React from 'react';
+import {
+  GameActions,
+  Card,
+  GameState,
+  GameStatus,
+  AppState,
+  Level,
+  GuessResponse,
+  Guess,
+  Reset,
+  Start,
 
-import { connect } from 'react-redux';
+} from '../../types';
+
+import { connect, Dispatch } from 'react-redux';
 import { actions } from '../../redux/modules/game';
-import Start from '../../components/Start';
+import StartComponent from '../../components/Start';
 import PlayAgain from '../../components/PlayAgain';
 import GuessComponent from '../../components/Guess';
 
-type State = { 
-  game: GameState
+type Actions = {
+  start: Start
+  guess: Guess
+  reset: Reset
 };
 
-type Actions = {
-  start: Dispatch,
-  guessHigh: Dispatch,
-  guessLow: Dispatch,
-  reset: Dispatch
-};
+type State = {
+  game : GameState
+}
 
 type Props = State & Actions;
 
-const Buttons = ({ game, start, guessHigh, guessLow, reset }: Props) => {
+const Buttons = ({ game, start, guess, reset }: Props) => {
   if (!game || game.status === GameStatus.notStarted) {
-    return <Start startGame={start} />;
+    return <StartComponent start={start} />;
   }
   if (game.status === GameStatus.started) {
-    return <GuessComponent guessHigh={guessHigh} guessLow={guessLow} />;
+    return <GuessComponent guess={guess}  />;
   }
-  return <PlayAgain reset={reset}/>;
-  
+  return <PlayAgain reset={reset} />;
 };
 
 const mapStateToProps = (state: AppState): State => {
@@ -37,20 +47,15 @@ const mapStateToProps = (state: AppState): State => {
   };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch): Actions => {
+const mapDispatchToProps = (dispatch: Dispatch<GameActions>): Actions => {
+  const start :Start = (level: Level = Level.easy) => dispatch(actions.start(level));
+  const guess :Guess = (guess: GuessResponse) => dispatch(actions.guess(guess));
+  const reset :Reset = () => dispatch(actions.reset());
+
   return {
-    start: (level: Level) => {
-      dispatch(actions.start(level));
-    },
-    guessHigh: () => {
-      dispatch(actions.guess(Guess.high));
-    },
-    guessLow: () => {
-      dispatch(actions.guess(Guess.low));    
-    },
-    reset: () => {
-      dispatch(actions.reset());
-    }
+    start,
+    guess,
+    reset
   };
 };
 
