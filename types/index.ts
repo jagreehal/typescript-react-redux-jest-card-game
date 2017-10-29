@@ -1,5 +1,9 @@
 import { Store as StoreType } from "redux";
 
+declare global {
+  interface Window { __NEXT_DATA__: any; }
+}
+
 declare interface ObjectConstructor {
   assign(target: any, ...sources: any[]): any;
 }

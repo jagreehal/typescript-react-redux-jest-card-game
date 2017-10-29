@@ -2,6 +2,14 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import Head from 'next/head';
+import styled, { hydrate, keyframes, css, injectGlobal } from 'react-emotion';
+
+// Adds server generated styles to emotion cache.
+// '__NEXT_DATA__.ids' is set in '_document.js'
+if (typeof window !== 'undefined') {
+  hydrate(window.__NEXT_DATA__.ids);
+}
+
 import { Card, GameState, GameStatus, AppState, Level, Store } from '../types';
 
 import App from '../components/App';
@@ -20,19 +28,23 @@ let startedState: AppState = {
 
 const store: Store = configureStore();
 
-export default function Index() {
+const pageStyles = styled('div')`
+  h1 {
+    font-style: italic;
+  }
+`;
+
+export default () => {
+  injectGlobal`
+  html, body {    
+    min-height: 100%;  
+    padding: 0;  
+    background: green;
+  }`;
+
   return (
-    <div>
-      <Head>
-        <title>▲ Higher or ▼ Lower?</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link href="static/tachyons.css" media="all" rel="stylesheet" />
-        <link href="static/style.css" media="all" rel="stylesheet" />
-      </Head>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </div>
+    <Provider store={store}>
+      <App />
+    </Provider>
   );
-}
+};
