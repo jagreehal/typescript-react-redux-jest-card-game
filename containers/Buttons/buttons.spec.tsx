@@ -26,7 +26,7 @@ describe("Main tests", () => {
       expect(startComponent).toBeDefined();
       startComponent.props().start(Level.easy);
 
-      expect(store.getActions()).toEqual([actions.start()]);
+      expect(store.getActions()).toEqual([actions.start(Level.easy)]);
     });
   });
 
