@@ -28,18 +28,12 @@ let startedState: AppState = {
 
 const store: Store = configureStore();
 
-const pageStyles = styled('div')`
-  h1 {
-    font-style: italic;
-  }
-`;
-
 export default () => {
   injectGlobal`
   html, body {    
     min-height: 100%;  
     padding: 0;  
-    background: green;
+    background: red;    
   }`;
 
   return (

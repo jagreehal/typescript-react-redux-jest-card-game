@@ -8,6 +8,8 @@ declare interface ObjectConstructor {
   assign(target: any, ...sources: any[]): any;
 }
 
+export type CardSuit = "diamonds" | "hearts" | "clubs" | "spades";
+
 export interface Card {
   readonly value: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13;
   readonly display:
@@ -24,7 +26,7 @@ export interface Card {
     | "J"
     | "Q"
     | "K";
-  readonly suit: "diamonds" | "hearts" | "clubs" | "spades";
+  readonly suit: CardSuit;
   readonly flipped: boolean;
 }
 
