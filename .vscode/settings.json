@@ -15,6 +15,7 @@
     "pages/**/.js*": true,
     "types/**/.js*": true,
     "components/**/.js*": true,
-    "test/**/.js*": true
+    "test/**/.js*": true,
+    "stories/**/.js*": true
   }
 }

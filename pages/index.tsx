@@ -2,10 +2,8 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import Head from 'next/head';
-import styled, { hydrate, keyframes, css, injectGlobal } from 'react-emotion';
+import { hydrate, injectGlobal } from 'react-emotion';
 
-// Adds server generated styles to emotion cache.
-// '__NEXT_DATA__.ids' is set in '_document.js'
 if (typeof window !== 'undefined') {
   hydrate(window.__NEXT_DATA__.ids);
 }
@@ -26,14 +24,14 @@ let startedState: AppState = {
   }
 };
 
-const store: Store = configureStore();
+const store: Store = configureStore(startedState);
 
 export default () => {
   injectGlobal`
   html, body {    
-    min-height: 100%;  
-    padding: 0;  
-    background: red;    
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMTM3NzUyIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2U9ImdyZWVuIj48L3BhdGg+Cjwvc3ZnPg==');
+    height: 100%;
+    width: 100%;
   }`;
 
   return (

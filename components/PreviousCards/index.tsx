@@ -1,5 +1,6 @@
 import * as React from 'react'; 
 import { Card } from "../../types";
+import styled, { css } from 'react-emotion';
 
 import PlayingCard from '../../components/PlayingCard';
 
@@ -7,12 +8,20 @@ export type Props = {
   readonly previousCards: Array<Card>
 };
 
+const Cards = styled('li')`
+   margin-right: 1em;
+   display: inline-block;
+   &:last-child {
+    margin-right: 0;
+  }
+`;
+
 const PreviousCards = ({ previousCards = [] }: Props) => {
   let cards = previousCards.slice(0).reverse().map((card, idx) => {
     return (
-      <li className="dib" key={idx}>
+      <Cards key={idx}>
         <PlayingCard card={card} small={true} />
-      </li>
+      </Cards>
     );
   });
 

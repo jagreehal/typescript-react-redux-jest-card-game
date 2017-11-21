@@ -1,10 +1,11 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint:latest", "tslint-react"],
+  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
   "jsRules": {},
-  "rules": {
-    "interface-name": false,
-    "no-var-requires": true
-  },
-  "rulesDirectory": []
+  "prettier/prettier": [
+    "error",
+    {
+      "singleQuote": true
+    }
+  ]  
 }
