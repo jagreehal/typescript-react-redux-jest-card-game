@@ -6,7 +6,7 @@ import Start from "../../components/Start";
 import PlayAgain from "../../components/PlayAgain";
 import GuessComponent from "../../components/Guess";
 import { actions } from "../../redux/modules/game";
-import { cardAclubs } from "../../cards";
+import { cardAclubs, flipCard } from "../../cards";
 import { Provider } from "react-redux";
 
 import { Card, GuessResponse, Level, GameStatus, AppState } from "../../types";
@@ -36,7 +36,7 @@ describe("Main tests", () => {
         status: GameStatus.started,
         previousCards: [],
         remainingCards: [],
-        currentCard: cardAclubs,
+        currentCard: flipCard(cardAclubs),
         level: Level.easy
       }
     };
@@ -77,7 +77,7 @@ describe("Main tests", () => {
           status: GameStatus.won,
           previousCards: [],
           remainingCards: [],
-          currentCard: cardAclubs,
+          currentCard: flipCard(cardAclubs),
           level: Level.easy
         }
       };

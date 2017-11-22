@@ -1,13 +1,13 @@
+import { card2hearts, card3hearts, cardAhearts, flipCard } from '../../cards';
 import {
   Card,
-  GuessResponse,
   GameActions,
   GameState,
-  Level,
-  GameStatus
+  GameStatus,
+  GuessResponse,
+  Level
 } from '../../types';
-import { cardAhearts, card2hearts, card3hearts } from '../../cards';
-import { reducer, actions, initialState } from './game';
+import { actions, initialState, reducer } from './game';
 
 describe('Game reducer', () => {
   it('can start game', () => {
@@ -31,7 +31,7 @@ describe('Game reducer', () => {
 
     const gameState: GameState = {
       previousCards: [],
-      currentCard: card1,
+      currentCard: flipCard(card1),
       remainingCards: [card2],
       status: GameStatus.started,
       level: Level.easy
@@ -49,7 +49,7 @@ describe('Game reducer', () => {
     expect(remainingCard.value).toBe(2);
     expect(remainingCard.flipped).toBeTruthy();
     expect(result.currentCard.value).toBe(1);
-    expect(result.status).toBe('won');
+    expect(result.status).toBe(GameStatus.won);
   });
 
   it('can play mid game', () => {
@@ -59,7 +59,7 @@ describe('Game reducer', () => {
 
     const gameState: GameState = {
       previousCards: [],
-      currentCard: card1,
+      currentCard: flipCard(card1),
       remainingCards: [card2, card3],
       status: GameStatus.started,
       level: Level.easy
@@ -84,11 +84,11 @@ describe('Game reducer', () => {
     const card3 = card3hearts;
 
     const gameState: GameState = {
-      previousCards: [],
-      currentCard: card1,
+      currentCard: flipCard(card1),
+      level: Level.easy,
+      previousCards: [],      
       remainingCards: [card2],
-      status: GameStatus.started,
-      level: Level.easy
+      status: GameStatus.started,      
     };
 
     const result = reducer(gameState, actions.guess(GuessResponse.low));
@@ -99,6 +99,6 @@ describe('Game reducer', () => {
     expect(result.previousCards.length).toBe(0);
     expect(result.remainingCards.length).toBe(1);
     expect(result.currentCard ? result.currentCard.value : null).toBe(1);
-    expect(result.status).toBe('lost');
+    expect(result.status).toBe(GameStatus.lost);
   });
 });

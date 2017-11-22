@@ -10,6 +10,10 @@ declare interface ObjectConstructor {
 
 export type CardSuit = "diamonds" | "hearts" | "clubs" | "spades";
 
+export interface FlippedCard extends Card {
+  flipped: true
+}
+
 export interface Card {
   readonly value: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13;
   readonly display:
@@ -36,8 +40,8 @@ export enum Level {
 }
 
 export interface Cards {
-  readonly previousCards: Card[];
-  readonly currentCard: Card;
+  readonly previousCards: FlippedCard[];
+  readonly currentCard: FlippedCard;
   readonly remainingCards: Card[];
 }
 

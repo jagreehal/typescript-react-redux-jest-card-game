@@ -1,10 +1,14 @@
-import { Card } from '../types';
+import { Card, FlippedCard } from '../types';
+
+export function flipCard(card: Card): FlippedCard {
+  return Object.assign(Object.create(null), card, { flipped: true });
+}
 
 export const cardAclubs: Card = {
-  value: 1,
   display: 'A',
+  flipped: false,
   suit: 'clubs',
-  flipped: false
+  value: 1
 };
 export const card2clubs: Card = {
   value: 2,

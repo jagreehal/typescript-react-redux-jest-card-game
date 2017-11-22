@@ -9,7 +9,7 @@ import PreviousCards from '../../components/PreviousCards';
 import Message from '../../components/Message';
 import CurrentAndNext from '../../components/CurrentAndNext';
 
-import { Card, GuessResponse, Level, GameStatus, AppState } from '../../types';
+import { Card, GuessResponse, Level, GameStatus, AppState, FlippedCard } from '../../types';
 
 describe('Main tests', () => {
   const mockStore = configureStore();
@@ -39,18 +39,18 @@ describe('Main tests', () => {
   });
 
   it('Will render correct components when game is started', () => {
-    const card: Card = {
+    const flippedCard: FlippedCard = {
       value: 1,
       suit: 'hearts',
       display: 'A',
-      flipped: false
+      flipped: true
     };
     const state: AppState = {
       game: {
         status: GameStatus.started,
         previousCards: [],
         remainingCards: [],
-        currentCard: card,
+        currentCard: flippedCard,
         level: Level.easy
       }
     };

@@ -1,15 +1,15 @@
+import { cards, flipCard, getShuffledCardsForGame } from '../../cards';
 import {
   Card,
-  GuessResponse,
   GameActions,
   GameState,
-  Level,
   GameStatus,
   Guess,
-  Start,
-  Reset
+  GuessResponse,
+  Level,
+  Reset,
+  Start
 } from '../../types';
-import { cards, getShuffledCardsForGame } from '../../cards';
 
 export const initialState: GameState = {
   status: GameStatus.notStarted
@@ -24,8 +24,8 @@ const reset: Reset = () => ({ type: 'RESET_GAME' });
 
 export const actions = {
   guess,
-  start,
-  reset
+  reset,
+  start
 };
 
 export function reducer(
@@ -51,11 +51,11 @@ export function reducer(
       }
 
       return {
+        currentCard: { ...cardsForGame[0], flipped: true },
         level,
-        status: GameStatus.started,
         previousCards: [],
-        currentCard: Object.assign({}, cardsForGame[0], { flipped: true }),
-        remainingCards: cardsForGame.slice(1)
+        remainingCards: cardsForGame.slice(1),
+        status: GameStatus.started
       };
 
     case 'GUESS':
@@ -64,20 +64,21 @@ export function reducer(
       }
 
       if (!state.remainingCards.length) {
-        return Object.assign({}, state, {
-          status: 'won',
-          hasWon: true
-        });
+        return {
+          ...state,          
+          status: GameStatus.won
+        };
       }
 
-      const nextCard = Object.assign({}, state.remainingCards[0], {
+      const nextCard = {
+        ...state.remainingCards[0],
         flipped: true
-      });
+      };
 
       const nextRemainingCards = state.remainingCards.slice(1);
       // flip the next card
 
-      let guessIsOK = false;
+      let guessIsOK;
       if (action.guess === GuessResponse.high) {
         guessIsOK = nextCard.value > state.currentCard.value;
       } else {
@@ -85,26 +86,29 @@ export function reducer(
       }
 
       if (!guessIsOK) {
-        return Object.assign({}, state, {
+        return {
+          ...state,
           remainingCards: [nextCard].concat(nextRemainingCards),
-          status: 'lost'
-        });
+          status: GameStatus.lost
+        };
       }
 
       const hasWon = nextRemainingCards.length === 0 ? true : undefined;
 
       if (hasWon) {
-        return Object.assign({}, state, {
+        return {
+          ...state,
           remainingCards: [nextCard],
-          status: 'won'
-        });
+          status: GameStatus.won
+        };
       }
 
-      return Object.assign({}, state, {
+      return {
+        ...state,
+        currentCard: flipCard(nextCard),
         previousCards: state.previousCards.concat(state.currentCard),
-        currentCard: nextCard,
         remainingCards: nextRemainingCards
-      });
+      };
 
     default:
       return state;

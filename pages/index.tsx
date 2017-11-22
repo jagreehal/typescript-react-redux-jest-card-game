@@ -12,13 +12,13 @@ import { Card, GameState, GameStatus, AppState, Level, Store } from '../types';
 
 import App from '../components/App';
 import configureStore from '../redux/configureStore';
-import { cardAhearts, card2hearts, card3hearts } from '../cards';
+import { cardAhearts, card2hearts, card3hearts, flipCard } from '../cards';
 
 let startedState: AppState = {
   game: {
     status: GameStatus.started,
-    previousCards: [Object.assign({}, cardAhearts, { flipped: true })],
-    currentCard: Object.assign({}, card2hearts, { flipped: true }),
+    previousCards: [flipCard(cardAhearts)],
+    currentCard: flipCard(card2hearts),
     remainingCards: [card3hearts],
     level: Level.easy
   }

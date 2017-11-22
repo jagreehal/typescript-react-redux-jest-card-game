@@ -1,6 +1,6 @@
-import { GuessResponse, Level, GameStatus } from '../../types';
-import { cardAhearts, card2hearts, card3hearts } from '../../cards';
-import { reducer, actions, initialState } from './game';
+import { card2hearts, card3hearts, cardAhearts, flipCard } from '../../cards';
+import { GameStatus, GuessResponse, Level } from '../../types';
+import { actions, initialState, reducer } from './game';
 describe('Game reducer', () => {
     it('can start game', () => {
         const result = reducer(initialState, {
@@ -20,7 +20,7 @@ describe('Game reducer', () => {
         const card2 = card2hearts;
         const gameState = {
             previousCards: [],
-            currentCard: card1,
+            currentCard: flipCard(card1),
             remainingCards: [card2],
             status: GameStatus.started,
             level: Level.easy
@@ -43,7 +43,7 @@ describe('Game reducer', () => {
         const card3 = card3hearts;
         const gameState = {
             previousCards: [],
-            currentCard: card1,
+            currentCard: flipCard(card1),
             remainingCards: [card2, card3],
             status: GameStatus.started,
             level: Level.easy
@@ -63,11 +63,11 @@ describe('Game reducer', () => {
         const card2 = card2hearts;
         const card3 = card3hearts;
         const gameState = {
+            currentCard: flipCard(card1),
+            level: Level.easy,
             previousCards: [],
-            currentCard: card1,
             remainingCards: [card2],
             status: GameStatus.started,
-            level: Level.easy
         };
         const result = reducer(gameState, actions.guess(GuessResponse.low));
         if (result.status === GameStatus.notStarted) {
