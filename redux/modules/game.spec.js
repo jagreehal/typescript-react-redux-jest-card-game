@@ -35,7 +35,7 @@ describe('Game reducer', () => {
         expect(remainingCard.value).toBe(2);
         expect(remainingCard.flipped).toBeTruthy();
         expect(result.currentCard.value).toBe(1);
-        expect(result.status).toBe('won');
+        expect(result.status).toBe(GameStatus.won);
     });
     it('can play mid game', () => {
         const card1 = cardAhearts;
@@ -77,7 +77,7 @@ describe('Game reducer', () => {
         expect(result.previousCards.length).toBe(0);
         expect(result.remainingCards.length).toBe(1);
         expect(result.currentCard ? result.currentCard.value : null).toBe(1);
-        expect(result.status).toBe('lost');
+        expect(result.status).toBe(GameStatus.lost);
     });
 });
 //# sourceMappingURL=game.spec.js.map

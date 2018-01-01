@@ -40,13 +40,13 @@ const CardFront = styled(CardContent)`
   background: #fff;
 
   &:before {
-    position: absolute;    
+    position: absolute;
     left: 0.25em;
     top: 0.25em;
   }
 
   &:after {
-    position: absolute;    
+    position: absolute;
     right: 0.25em;
     bottom: 0.25em;
   }
@@ -105,11 +105,11 @@ function getCardSuit(cardSuit: CardSuit) {
   }
 }
 
-const cardComponent = ({ card, small = false }: Props) => {
+const cardComponent: React.SFC<Props> = ({ card, small = false }) => {
   const CardFrontWithSuit = getCardSuit(card.suit);
 
   const cardFlipped = css`
-    transform: ${card.flipped ? 'none': 'rotateY(180deg)'};
+    transform: ${card.flipped ? 'none' : 'rotateY(180deg)'};
   `;
 
   const cardSize = css`
