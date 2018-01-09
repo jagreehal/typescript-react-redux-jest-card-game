@@ -1,4 +1,5 @@
 import * as React from 'react';
+import LinkWithTriangle from "../LinkWithTriangle";
 import { Guess, GuessResponse } from '../../types';
 
 export type Props = {
@@ -8,20 +9,18 @@ export type Props = {
 const GuessComponent = ({ guess }: Props) => {
   return (
     <div>
-      <a
+       <LinkWithTriangle
         id="guessHigh"
-        className="f6 link ph4 pv4 black bg-light-blue mr5"
-        onClick={() => guess(GuessResponse.high)}
-      >
-        &#9650; Higher
-      </a>
-      <a
+        action={() => guess(GuessResponse.high)}
+        text="▲ Higher"
+        bgColour="light-blue"
+      />
+      <LinkWithTriangle
         id="guessLow"
-        className="f6 link ph4 pv4 white bg-dark-blue"
-        onClick={() => guess(GuessResponse.low)}
-      >
-        &#9660; Lower
-      </a>
+        action={() => guess(GuessResponse.low)}
+        text="▼ Lower"
+        bgColour="dark-blue"
+      />      
     </div>
   );
 };

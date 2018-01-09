@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Reset } from '../../types';
+import LinkWithTriangle from "../LinkWithTriangle";
 
 export type Props = {
   reset: Reset
@@ -7,14 +8,13 @@ export type Props = {
 
 const StartGame = ({ reset }: Props) => {
   return (
-    <div>
-      <a
+    <div className="tc">
+      <LinkWithTriangle      
         id="playAgain"
-        className="f6 link ph6 ph7-ns pv4 white bg-blue"
-        onClick={reset}
-      >
-        <span className="right-pointing-triangle">&nbsp;</span> Play Again
-      </a>
+        action={reset}
+        text="► Play Again"
+        bgColour="blue"
+      />                
     </div>
   );
 };

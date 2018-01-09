@@ -24,7 +24,7 @@ let startedState: AppState = {
   }
 };
 
-const store: Store = configureStore(startedState);
+const store: Store = configureStore();
 
 export default () => {
   injectGlobal`

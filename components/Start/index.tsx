@@ -1,5 +1,6 @@
-import * as React from 'react';
-import { Level, Start } from '../../types';
+import * as React from "react";
+import LinkWithTriangle from "../LinkWithTriangle";
+import { Level, Start } from "../../types";
 
 export type Props = {
   start: Start
@@ -8,20 +9,17 @@ export type Props = {
 const StartGame = ({ start }: Props) => {
   return (
     <div>
-      <a
+      <LinkWithTriangle
         id="easy"
-        className="f6 link ph4 pv4 black bg-yellow mr5"
-        onClick={() => start(Level.easy)}
-      >
-        <span className="right-pointing-triangle">&nbsp;</span> Easy
-      </a>
-      <a
+        action={() => start(Level.easy)}
+        text="► Easy"
+      />
+      <LinkWithTriangle
         id="hard"
-        className="f6 link ph4 pv4 black bg-red"
-        onClick={() => start(Level.hard)}
-      >
-        <span className="right-pointing-triangle">&nbsp;</span> Hard
-      </a>
+        bgColour="red"
+        action={() => start(Level.hard)}
+        text="► Hard"
+      />
     </div>
   );
 };
