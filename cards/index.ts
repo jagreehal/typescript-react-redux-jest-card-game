@@ -1,320 +1,320 @@
 import { Card } from '../types';
 
 export const cardAclubs: Card = {
-  value: 1,
   display: 'A',
+  flipped: false,
   suit: 'clubs',
-  flipped: false
+  value: 1,
 };
 export const card2clubs: Card = {
-  value: 2,
   display: '2',
+  flipped: false,
   suit: 'clubs',
-  flipped: false
+  value: 2,
 };
 export const card3clubs: Card = {
-  value: 3,
   display: '3',
+  flipped: false,
   suit: 'clubs',
-  flipped: false
+  value: 3,
 };
 export const card4clubs: Card = {
-  value: 4,
   display: '4',
+  flipped: false,
   suit: 'clubs',
-  flipped: false
+  value: 4,
 };
 export const card5clubs: Card = {
-  value: 5,
   display: '5',
+  flipped: false,
   suit: 'clubs',
-  flipped: false
+  value: 5,
 };
 export const card6clubs: Card = {
-  value: 6,
   display: '6',
+  flipped: false,
   suit: 'clubs',
-  flipped: false
+  value: 6,
 };
 export const card7clubs: Card = {
-  value: 7,
   display: '7',
+  flipped: false,
   suit: 'clubs',
-  flipped: false
+  value: 7,
 };
 export const card8clubs: Card = {
   value: 8,
   display: '8',
   suit: 'clubs',
-  flipped: false
+  flipped: false,
 };
 export const card9clubs: Card = {
   value: 9,
   display: '9',
   suit: 'clubs',
-  flipped: false
+  flipped: false,
 };
 export const card10clubs: Card = {
   value: 10,
   display: '10',
   suit: 'clubs',
-  flipped: false
+  flipped: false,
 };
 export const cardJclubs: Card = {
   value: 11,
   display: 'J',
   suit: 'clubs',
-  flipped: false
+  flipped: false,
 };
 export const cardQclubs: Card = {
   value: 12,
   display: 'Q',
   suit: 'clubs',
-  flipped: false
+  flipped: false,
 };
 export const cardKclubs: Card = {
   value: 13,
   display: 'K',
   suit: 'clubs',
-  flipped: false
+  flipped: false,
 };
 
 export const cardAhearts: Card = {
   value: 1,
   display: 'A',
   suit: 'hearts',
-  flipped: false
+  flipped: false,
 };
 export const card2hearts: Card = {
   value: 2,
   display: '2',
   suit: 'hearts',
-  flipped: false
+  flipped: false,
 };
 export const card3hearts: Card = {
   value: 3,
   display: '3',
   suit: 'hearts',
-  flipped: false
+  flipped: false,
 };
 export const card4hearts: Card = {
   value: 4,
   display: '4',
   suit: 'hearts',
-  flipped: false
+  flipped: false,
 };
 export const card5hearts: Card = {
   value: 5,
   display: '5',
   suit: 'hearts',
-  flipped: false
+  flipped: false,
 };
 export const card6hearts: Card = {
   value: 6,
   display: '6',
   suit: 'hearts',
-  flipped: false
+  flipped: false,
 };
 export const card7hearts: Card = {
   value: 7,
   display: '7',
   suit: 'hearts',
-  flipped: false
+  flipped: false,
 };
 export const card8hearts: Card = {
   value: 8,
   display: '8',
   suit: 'hearts',
-  flipped: false
+  flipped: false,
 };
 export const card9hearts: Card = {
   value: 9,
   display: '9',
   suit: 'hearts',
-  flipped: false
+  flipped: false,
 };
 export const card10hearts: Card = {
   value: 10,
   display: '10',
   suit: 'hearts',
-  flipped: false
+  flipped: false,
 };
 export const cardJhearts: Card = {
   value: 11,
   display: 'J',
   suit: 'hearts',
-  flipped: false
+  flipped: false,
 };
 export const cardQhearts: Card = {
   value: 12,
   display: 'Q',
   suit: 'hearts',
-  flipped: false
+  flipped: false,
 };
 export const cardKhearts: Card = {
   value: 13,
   display: 'K',
   suit: 'hearts',
-  flipped: false
+  flipped: false,
 };
 
 export const cardAspades: Card = {
   value: 1,
   display: 'A',
   suit: 'spades',
-  flipped: false
+  flipped: false,
 };
 export const card2spades: Card = {
   value: 2,
   display: '2',
   suit: 'spades',
-  flipped: false
+  flipped: false,
 };
 export const card3spades: Card = {
   value: 3,
   display: '3',
   suit: 'spades',
-  flipped: false
+  flipped: false,
 };
 export const card4spades: Card = {
   value: 4,
   display: '4',
   suit: 'spades',
-  flipped: false
+  flipped: false,
 };
 export const card5spades: Card = {
   value: 5,
   display: '5',
   suit: 'spades',
-  flipped: false
+  flipped: false,
 };
 export const card6spades: Card = {
   value: 6,
   display: '6',
   suit: 'spades',
-  flipped: false
+  flipped: false,
 };
 export const card7spades: Card = {
   value: 7,
   display: '7',
   suit: 'spades',
-  flipped: false
+  flipped: false,
 };
 export const card8spades: Card = {
   value: 8,
   display: '8',
   suit: 'spades',
-  flipped: false
+  flipped: false,
 };
 export const card9spades: Card = {
   value: 9,
   display: '9',
   suit: 'spades',
-  flipped: false
+  flipped: false,
 };
 export const card10spades: Card = {
   value: 10,
   display: '10',
   suit: 'spades',
-  flipped: false
+  flipped: false,
 };
 export const cardJspades: Card = {
   value: 11,
   display: 'J',
   suit: 'spades',
-  flipped: false
+  flipped: false,
 };
 export const cardQspades: Card = {
   value: 12,
   display: 'Q',
   suit: 'spades',
-  flipped: false
+  flipped: false,
 };
 export const cardKspades: Card = {
   value: 13,
   display: 'K',
   suit: 'spades',
-  flipped: false
+  flipped: false,
 };
 
 export const cardAdiamonds: Card = {
   value: 1,
   display: 'A',
   suit: 'diamonds',
-  flipped: false
+  flipped: false,
 };
 export const card2diamonds: Card = {
   value: 2,
   display: '2',
   suit: 'diamonds',
-  flipped: false
+  flipped: false,
 };
 export const card3diamonds: Card = {
   value: 3,
   display: '3',
   suit: 'diamonds',
-  flipped: false
+  flipped: false,
 };
 export const card4diamonds: Card = {
   value: 4,
   display: '4',
   suit: 'diamonds',
-  flipped: false
+  flipped: false,
 };
 export const card5diamonds: Card = {
   value: 5,
   display: '5',
   suit: 'diamonds',
-  flipped: false
+  flipped: false,
 };
 export const card6diamonds: Card = {
   value: 6,
   display: '6',
   suit: 'diamonds',
-  flipped: false
+  flipped: false,
 };
 export const card7diamonds: Card = {
   value: 7,
   display: '7',
   suit: 'diamonds',
-  flipped: false
+  flipped: false,
 };
 export const card8diamonds: Card = {
   value: 8,
   display: '8',
   suit: 'diamonds',
-  flipped: false
+  flipped: false,
 };
 export const card9diamonds: Card = {
   value: 9,
   display: '9',
   suit: 'diamonds',
-  flipped: false
+  flipped: false,
 };
 
 export const card10diamonds: Card = {
   value: 10,
   display: '10',
   suit: 'diamonds',
-  flipped: false
+  flipped: false,
 };
 export const cardJdiamonds: Card = {
   value: 11,
   display: 'J',
   suit: 'diamonds',
-  flipped: false
+  flipped: false,
 };
 export const cardQdiamonds: Card = {
   value: 12,
   display: 'Q',
   suit: 'diamonds',
-  flipped: false
+  flipped: false,
 };
 export const cardKdiamonds: Card = {
   value: 13,
   display: 'K',
   suit: 'diamonds',
-  flipped: false
+  flipped: false,
 };
 
 export const cards: Card[] = [
@@ -369,12 +369,12 @@ export const cards: Card[] = [
   card10diamonds,
   cardJdiamonds,
   cardQdiamonds,
-  cardKdiamonds
+  cardKdiamonds,
 ];
 
 export function shuffle(input: Card[]): Card[] {
-  const cards = input.slice(0);
-  let currentIndex = cards.length;
+  const cardsArr = input.slice(0);
+  let currentIndex = cardsArr.length;
   let temporaryValue;
   let randomIndex;
 
@@ -393,10 +393,10 @@ export function shuffle(input: Card[]): Card[] {
   return cards;
 }
 
-export function notNextToEachOther(cards: Card[]): boolean {
+export function notNextToEachOther(cardsToCheck: Card[]): boolean {
   // tslint:disable-next-line:no-increment-decrement
-  for (let i = 0; i < cards.length - 1; i++) {
-    if (cards[i].value === cards[i + 1].value) {
+  for (let i = 0; i < cardsToCheck.length - 1; i++) {
+    if (cardsToCheck[i].value === cardsToCheck[i + 1].value) {
       return false;
     }
   }
@@ -404,9 +404,9 @@ export function notNextToEachOther(cards: Card[]): boolean {
 }
 
 export function getShuffledCardsForGame(input: Card[]): Card[] {
-  let cards = shuffle(input.slice(0));
-  while (!notNextToEachOther(cards)) {
-    cards = shuffle(input.slice(0));
+  let shuffledCards = shuffle(input.slice(0));
+  while (!notNextToEachOther(shuffledCards)) {
+    shuffledCards = shuffle(input.slice(0));
   }
-  return cards;
+  return shuffledCards;
 }

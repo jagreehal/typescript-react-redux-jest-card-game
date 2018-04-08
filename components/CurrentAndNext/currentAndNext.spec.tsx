@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import CurrentAndNext from './index';
-import PlayingCard from '../PlayingCard';
 import { mount } from '../../test';
 import { cardAclubs, card2clubs } from '../../cards';
 

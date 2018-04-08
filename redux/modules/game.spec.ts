@@ -1,20 +1,19 @@
+import { card2hearts, card3hearts, cardAhearts } from '../../cards';
 import {
-  Card,
-  GuessResponse,
-  GameActions,
   GameState,
+  GameStatus,
+  GuessResponse,
   Level,
-  GameStatus
 } from '../../types';
-import { cardAhearts, card2hearts, card3hearts } from '../../cards';
-import { reducer, actions, initialState } from './game';
+import { actions, initialState, reducer } from './game';
 
 describe('Game reducer', () => {
   it('can start game', () => {
     const result = reducer(initialState, {
+      level: Level.easy,
       type: 'START_GAME',
-      level: Level.easy
     });
+
     if (result.status === GameStatus.notStarted) {
       expect(result.status).toBe('started');
       return false;
@@ -30,11 +29,11 @@ describe('Game reducer', () => {
     const card2 = card2hearts;
 
     const gameState: GameState = {
-      previousCards: [],
       currentCard: card1,
+      level: Level.easy,
+      previousCards: [],
       remainingCards: [card2],
       status: GameStatus.started,
-      level: Level.easy
     };
 
     const result = reducer(gameState, actions.guess(GuessResponse.high));
@@ -58,11 +57,11 @@ describe('Game reducer', () => {
     const card3 = card3hearts;
 
     const gameState: GameState = {
-      previousCards: [],
       currentCard: card1,
+      level: Level.easy,
+      previousCards: [],
       remainingCards: [card2, card3],
       status: GameStatus.started,
-      level: Level.easy
     };
 
     const result = reducer(gameState, actions.guess(GuessResponse.high));
@@ -81,14 +80,13 @@ describe('Game reducer', () => {
   it('can play bad card', () => {
     const card1 = cardAhearts;
     const card2 = card2hearts;
-    const card3 = card3hearts;
 
     const gameState: GameState = {
-      previousCards: [],
       currentCard: card1,
+      level: Level.easy,
+      previousCards: [],
       remainingCards: [card2],
       status: GameStatus.started,
-      level: Level.easy
     };
 
     const result = reducer(gameState, actions.guess(GuessResponse.low));

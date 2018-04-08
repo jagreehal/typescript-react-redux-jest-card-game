@@ -2,3 +2,4 @@
 node_modules
 **/*.js*
 !wallaby.js
+!next.config.js

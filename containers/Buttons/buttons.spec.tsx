@@ -1,17 +1,16 @@
 import * as React from "react";
 import Buttons from "./index";
 import { mount } from "../../test";
-import configureStore from "redux-mock-store";
+const configureStore = require("redux-mock-store");
 import Start from "../../components/Start";
-import PlayAgain from "../../components/PlayAgain";
 import GuessComponent from "../../components/Guess";
 import { actions } from "../../redux/modules/game";
 import { cardAclubs } from "../../cards";
 import { Provider } from "react-redux";
 
-import { Card, GuessResponse, Level, GameStatus, AppState } from "../../types";
+import { GuessResponse, Level, GameStatus, AppState } from "../../types";
 
-describe("Main tests", () => {
+describe("Main tests", () => { 
   const mockStore = configureStore();
   describe("Start action should", () => {
     it(" call start action", () => {
@@ -42,7 +41,6 @@ describe("Main tests", () => {
     };
 
     let store;
-    let wrapper;
     let guessComponentProps;
 
     beforeEach(() => {

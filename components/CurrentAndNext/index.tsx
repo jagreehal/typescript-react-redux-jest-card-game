@@ -8,9 +8,7 @@ type Props = {
 };
 
 const CurrentAndNext = ({ currentCard, remainingCards }: Props) => {
-  let currentCardComponent = <li className="dib"><PlayingCard card={currentCard} /></li>;  
   let nextCard;
-  let answer;
   if (remainingCards.length){
     nextCard = <li className="dib"><PlayingCard card={remainingCards[0]} /></li>;    
   }

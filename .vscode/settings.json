@@ -1,20 +1,9 @@
 {
-  // Place your settings in this file to overwrite default and user settings.
-  "typescript.tsdk": "node_modules/typescript/lib",
-  // "editor.formatOnSave": true,
+  "typescript.tsdk": "node_modules/typescript/lib", 
   "tslint.autoFixOnSave": true,
   "files.associations": {
     "*.json": "json",
     "*.js*": "javascriptreact",
     "*.tsx": "javascriptreact"
-  },
-  "files.exclude": {
-    "cards/**/.js*": true,
-    "redux/**/.js*": true,
-    "containers/**/.js*": true,
-    "pages/**/.js*": true,
-    "types/**/.js*": true,
-    "components/**/.js*": true,
-    "test/**/.js*": true
   }
 }

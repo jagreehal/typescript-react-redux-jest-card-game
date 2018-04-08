@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { Card, GameState, GameStatus, AppState, Level } from '../../types';
+import { GameState, GameStatus, AppState } from '../../types';
 
 import { connect } from 'react-redux';
-import { actions } from '../../redux/modules/game';
 
 import Home from '../../components/Home';
 import PreviousCards from '../../components/PreviousCards';
@@ -17,7 +16,6 @@ export const Main = ({ game }: Props) => {
   if (!game || game.status === GameStatus.notStarted) {
     return <Home />;
   }
-  let totalCards = game.previousCards.length + game.remainingCards.length + 1;
 
   return (
     <div className="mh-75 flex flex-column">
