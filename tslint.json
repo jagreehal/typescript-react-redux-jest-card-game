@@ -3,8 +3,14 @@
   "extends": ["tslint:latest", "tslint-react"],
   "jsRules": {},
   "rules": {
+    "quotemark": [true, "single", "jsx-single"],
     "interface-name": false,
-    "no-var-requires": true
-  },
-  "rulesDirectory": []
+    "no-var-requires": true,
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true
+      }
+    ]
+  }
 }

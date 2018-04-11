@@ -11,7 +11,6 @@ module.exports = function(wallaby) {
     tests: ['@(components|containers|lib|pages|redux|cards)/**/*.spec.ts?(x)'],
     env: { type: 'node', runner: 'node' },
     compilers: {
-      '**/*.js?(x)': wallaby.compilers.babel(),
       '**/*.ts?(x)': wallaby.compilers.typeScript({
         typescript: require('typescript'),
         module: 'commonjs'

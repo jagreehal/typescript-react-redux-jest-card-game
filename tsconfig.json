@@ -1,14 +1,25 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "target": "es5",
+    "module": "commonjs",
     "jsx": "react",
-    "target": "es6",
-    "module": "es6",
-    "lib": ["es6", "dom"],
+    "allowJs": true,
+    "lib": [
+      "dom",
+      "es2015",
+      "es2016"
+    ],
+    "noEmit": true,
     "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
     "sourceMap": true,
     "typeRoots": ["./node_modules/@types", "types"]
+    
   },
   "exclude": ["node_modules"]
 }

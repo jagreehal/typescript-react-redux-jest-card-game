@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {
   GameActions,
-  Card,
   GameState,
   GameStatus,
   AppState,

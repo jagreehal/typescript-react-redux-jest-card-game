@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { mount } from '../../test';
 import PlayingCard from './index';
-import { cardAclubs, cardAhearts } from '../../cards';
+import { cardAclubs } from '../../cards';
 
 import { Card } from '../../types';
 

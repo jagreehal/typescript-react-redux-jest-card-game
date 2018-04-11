@@ -1,32 +1,28 @@
-import { Store as StoreType } from "redux";
-
-declare interface ObjectConstructor {
-  assign(target: any, ...sources: any[]): any;
-}
+import { Store as StoreType } from 'redux';
 
 export interface Card {
   readonly value: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13;
   readonly display:
-    | "A"
-    | "2"
-    | "3"
-    | "4"
-    | "5"
-    | "6"
-    | "7"
-    | "8"
-    | "9"
-    | "10"
-    | "J"
-    | "Q"
-    | "K";
-  readonly suit: "diamonds" | "hearts" | "clubs" | "spades";
+    | 'A'
+    | '2'
+    | '3'
+    | '4'
+    | '5'
+    | '6'
+    | '7'
+    | '8'
+    | '9'
+    | '10'
+    | 'J'
+    | 'Q'
+    | 'K';
+  readonly suit: 'diamonds' | 'hearts' | 'clubs' | 'spades';
   readonly flipped: boolean;
 }
 
 export enum Level {
-  "easy",
-  "hard",
+  'easy',
+  'hard',
 }
 
 export interface Cards {
@@ -36,10 +32,10 @@ export interface Cards {
 }
 
 export enum GameStatus {
-  "notStarted",
-  "started",
-  "won",
-  "lost",
+  notStarted = 'notStarted',
+  started = 'started',
+  won = 'won',
+  lost = 'lost',
 }
 
 interface GameNotStartedState {
@@ -58,26 +54,26 @@ export interface AppState {
 }
 
 export enum GuessResponse {
-  "high",
-  "low",
+  'high',
+  'low',
 }
 
 export interface StartGameAction {
-  type: "START_GAME";
+  type: 'START_GAME';
   readonly level: Level;
 }
 
 export type Start = (level: Level) => StartGameAction;
 
 export interface GuessAction {
-  type: "GUESS";
-  readonly guess: GuessResponse;
+  type: 'GUESS';
+  readonly guessResponse: GuessResponse;
 }
 
-export type Guess = (guess: GuessResponse) => GuessAction;
+export type Guess = (guessResponse: GuessResponse) => GuessAction;
 
 export interface ResetAction {
-  type: "RESET_GAME";
+  type: 'RESET_GAME';
 }
 
 export type Reset = () => ResetAction;

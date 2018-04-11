@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Main from './index';
 import { mount } from '../../test';
-import configureStore from 'redux-mock-store';
+const configureStore = require('redux-mock-store');
 import { Provider } from 'react-redux';
 
 import Home from '../../components/Home';
@@ -9,7 +9,7 @@ import PreviousCards from '../../components/PreviousCards';
 import Message from '../../components/Message';
 import CurrentAndNext from '../../components/CurrentAndNext';
 
-import { Card, GuessResponse, Level, GameStatus, AppState } from '../../types';
+import { Card, Level, GameStatus, AppState } from '../../types';
 
 describe('Main tests', () => {
   const mockStore = configureStore();
